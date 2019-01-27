@@ -195,11 +195,11 @@ class input:
         self.read_call_stats_file()
         self.read_seg_file()
         self.annotate_call_stats_with_allelic_cn_data()
-        print('Before self.indel_table = du.read_indel_vcf(self.indel_file, self.seg_table, self.indel_type')
+        print 'Before self.indel_table = du.read_indel_vcf(self.indel_file, self.seg_table, self.indel_type'
         if not self.indel_file == 'None':
             if not self.indel_type == 'None':
                 self.indel_table = du.read_indel_vcf(self.indel_file, self.seg_table, self.indel_type)
-                print('self.indel_table = du.read_indel_vcf(self.indel_file, self.seg_table, self.indel_type')
+                print 'self.indel_table = du.read_indel_vcf(self.indel_file, self.seg_table, self.indel_type'
             else:
                 print 'Warning: if indels are provided you must also specify indel data source using --indel_data_type'
                 print 'no indels will be returned'
@@ -379,9 +379,9 @@ class output:
                                                    self.SSNVs['p_outlier'] >= 0.01)] = 'KEEP'
         else:
             self.SSNVs['judgement'][self.SSNVs['p_somatic_given_TiN'] > self.threshold] = 'KEEP'
-        print('reached here')
+        print 'reached here'
         if  self.input.indel_file != 'None':
-            print('after if  self.input.indel_file is none')
+            print 'after if  self.input.indel_file is none' 
             if self.input.indel_table.isnull().values.sum() == 0:
                 indel_model = dssnv.model(self.input.indel_table, self.input.mutation_prior, self.input.resolution)
                 indel_model.generate_conditional_ps()
