@@ -379,7 +379,9 @@ class output:
                                                    self.SSNVs['p_outlier'] >= 0.01)] = 'KEEP'
         else:
             self.SSNVs['judgement'][self.SSNVs['p_somatic_given_TiN'] > self.threshold] = 'KEEP'
+        print('reached here')
         if  self.input.indel_file != 'None':
+            print('after if  self.input.indel_file is none')
             if self.input.indel_table.isnull().values.sum() == 0:
                 indel_model = dssnv.model(self.input.indel_table, self.input.mutation_prior, self.input.resolution)
                 indel_model.generate_conditional_ps()
